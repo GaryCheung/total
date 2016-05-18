@@ -627,7 +627,7 @@ def get_stock_amplitude(stock_list):
     time.sleep(1)
 
 #delete_current_data(config)
-get_stock_amplitude(stock_list)
+#get_stock_amplitude(stock_list)
 
 
 from bs4 import BeautifulSoup
