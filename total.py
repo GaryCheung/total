@@ -1,17 +1,145 @@
 from bs4 import BeautifulSoup
 import requests
-from datetime import date,datetime
 import time
 import pymysql
 import re
+from urllib.parse import quote
+import pycurl
+from datetime import date,datetime
 
-config = {
+mysql_config_vegetable = {
+    'host':'127.0.0.1',
+    'port':3306,
+    'user':'root',
+    'password':'19860112',
+    'db':'vegetable',
+    'charset':'gb2312',
+}
+
+stock_list = [
+    'SZ000543',    #皖能电力
+    'SZ002041',    #登海种业
+    'SH600050',    #中国联通
+    'SZ002215',    #诺普信
+    'SH600789',    #鲁抗医药
+    'SZ300027',    #华谊兄弟
+    'SH600133',    #东湖高新
+    'SZ300074',    #华平股份
+    'SZ002178',    #延华智能
+    'SZ300315',    #掌趣科技
+    'SZ002565',    #上海绿新
+    'SZ000705',    #浙江震元
+    'SH600677',    #航天通信
+    'SZ002658',    #雪迪龙
+    'SZ000563',    #陕国投A
+    'SZ002345',    #潮宏基
+    'SZ002699',    #美盛文化
+    'SH600251',    #冠农股份
+    'SZ000587',    #金洲慈航, 金叶珠宝
+    'SZ002553',    #南方轴承
+    'SZ002240'     #威华股份
+]
+
+config_stock = {
+    'host':'127.0.0.1',
+    'port':3306,
+    'user':'root',
+    'password':'19860112',
+    'db':'stock',
+    'charset':'utf8'
+}
+
+house_name = ['古桐公寓',
+              '三泾南宅',
+              '中阳小区',
+              '朗诗绿色街区',
+              '长宁路1600弄',
+              '春天花园',
+              '三泾北宅',
+              '金杨五街坊',
+              '金杨二街坊',
+              '由由七村',
+              '由由一村',
+              '由由三村',
+              '由由四村',
+              '由由五村',
+              '由由六村',
+              '由由二村',
+              '绿波城',
+              '毕加索小镇',
+              '金利公寓',
+              '兆丰花园',
+              '上海康城',
+              '齐爱佳苑',
+              '上海花城',
+              '凯欣豪园',
+              '天山中华园',
+              '上海阳城',
+              '水语人家',
+              '华润中央公园',
+              '科宁公寓',
+              '延西小区',
+              '保利叶语',
+              '金地艺境',
+              '春港丽园',
+              '古桐五村',
+              '古桐二村',
+              '古桐一村',
+              '古桐六村',
+              '古桐四村',
+              '古桐三村',
+              '建中路461弄',
+              '建中路171弄',
+              '汤臣豪园',
+              '奥林匹克花园',
+              '武夷花园',
+              '精益公寓',
+              '长宁路1488弄',
+              '新青浦佳园',
+              '新青浦花苑',
+              '武夷大楼',
+              '交江大楼',
+              '玉兰香苑',
+              '昭化小区',
+              '宁康小区',
+              '中山公寓',
+              '煜王苑',
+              '临沂一村',
+              '临沂二村',
+              '临沂三村',
+              '临沂四村',
+              '临沂五村',
+              '临沂六村',
+              '汇智湖畔家园',
+              '伟莱家园',
+              '东方丽景'
+              ]
+
+config_housebought = {
     'host':'127.0.0.1',
     'port':3306,
     'user':'root',
     'password':'19860112',
     'db':'house_bought',
     'charset':'gb2312'
+}
+
+config_house = {
+    'host':'127.0.0.1',
+    'port':3306,
+    'user':'root',
+    'password':'19860112',
+    'db':'house',
+    'charset':'gb2312'
+}
+
+config_iwjwrent = {
+    'host':'127.0.0.1',
+    'port':3306,
+    'user':'root',
+    'password':'19860112',
+    'db':'house_rent',
+    'charset':'utf8'
 }
 
 present_date = datetime.now().date()
@@ -80,94 +208,8 @@ def get_bouhgt_house(config,source):
 
 source = 'lianjia'
 print('execute time:-------------------',present_date)
-delete_today_data(config)
-get_bouhgt_house(config,source)
-
-
-from bs4 import BeautifulSoup
-import requests
-from _datetime import date,datetime
-import time
-import pymysql
-import re
-from urllib.parse import quote
-
-house_name = ['古桐公寓',
-              '三泾南宅',
-              '中阳小区',
-              '朗诗绿色街区',
-              '长宁路1600弄',
-              '春天花园',
-              '三泾北宅',
-              '金杨五街坊',
-              '金杨二街坊',
-              '由由七村',
-              '由由一村',
-              '由由三村',
-              '由由四村',
-              '由由五村',
-              '由由六村',
-              '由由二村',
-              '绿波城',
-              '毕加索小镇',
-              '金利公寓',
-              '兆丰花园',
-              '上海康城',
-              '齐爱佳苑',
-              '上海花城',
-              '凯欣豪园',
-              '天山中华园',
-              '上海阳城',
-              '水语人家',
-              '华润中央公园',
-              '科宁公寓',
-              '延西小区',
-              '保利叶语',
-              '金地艺境',
-              '春港丽园',
-              '古桐五村',
-              '古桐二村',
-              '古桐一村',
-              '古桐六村',
-              '古桐四村',
-              '古桐三村',
-              '建中路461弄',
-              '建中路171弄',
-              '汤臣豪园',
-              '奥林匹克花园',
-              '武夷花园',
-              '精益公寓',
-              '长宁路1488弄',
-              '新青浦佳园',
-              '新青浦花苑',
-              '武夷大楼',
-              '交江大楼',
-              '玉兰香苑',
-              '昭化小区',
-              '宁康小区',
-              '中山公寓',
-              '煜王苑',
-              '临沂一村',
-              '临沂二村',
-              '临沂三村',
-              '临沂四村',
-              '临沂五村',
-              '临沂六村',
-              '汇智湖畔家园',
-              '伟莱家园',
-              '东方丽景'
-              ]
-
-config = {
-    'host':'127.0.0.1',
-    'port':3306,
-    'user':'root',
-    'password':'19860112',
-    'db':'house',
-    'charset':'gb2312'
-}
-
-present_date = datetime.now().date()
+delete_today_data(config_housebought)
+get_bouhgt_house(config_housebought,source)
 
 def delete_today_data(config):
     connection = pymysql.connect(**config)
@@ -194,7 +236,7 @@ def get_fangdd_url(url_number,housename):
         urls[i-1] = url_begin + url_middle + url_end
     return urls
 
-def get_fangdd_house(urls,source):
+def get_fangdd_house(urls,source,config):
     for url in urls:
         print('original url-------------------------',url,'\n')
         #proxy = '33.33.33.11:8118'
@@ -256,7 +298,7 @@ def get_lianjia_url(url_number,housename):
         urls[i-1] = url_begin + url_middle
     return urls
 
-def get_lianjia_house(urls,source):
+def get_lianjia_house(urls,source,config):
     for url in urls:
         print(url)
         web_data = requests.get(url)
@@ -306,7 +348,7 @@ def get_iwjw_url(url_number,housename):
         urls[i-1] = url_begin + url_middle
     return urls
 
-def get_iwjw_house(urls,source):
+def get_iwjw_house(urls,source,config):
     for url in urls:
         print(url)
         web_data = requests.get(url)
@@ -350,106 +392,19 @@ def get_iwjw_house(urls,source):
                      connection.close()
         time.sleep(1)
 
-delete_today_data(config)
+delete_today_data(config_house)
 url_number = len(house_name)
 source =['fangdd','lianjia','iwjw']
 print('execute time:-------------------',present_date,'HOUSE')
 
 fangdd_url = get_fangdd_url(url_number,house_name)
-get_fangdd_house(fangdd_url,source[0])
+get_fangdd_house(fangdd_url,source[0],config_house)
 
 lianjia_url = get_lianjia_url(url_number,house_name)
-get_lianjia_house(lianjia_url,source[1])
+get_lianjia_house(lianjia_url,source[1],config_house)
 
 iwjw_url = get_iwjw_url(url_number,house_name)
-get_iwjw_house(iwjw_url,source[2])
-
-
-
-from bs4 import BeautifulSoup
-import requests
-from _datetime import date,datetime
-import time
-import pymysql
-import re
-from urllib.parse import quote
-
-house_name = ['古桐公寓',
-              '三泾南宅',
-              '中阳小区',
-              '朗诗绿色街区',
-              '长宁路1600弄',
-              '春天花园',
-              '三泾北宅',
-              '金杨五街坊',
-              '金杨二街坊',
-              '由由七村',
-              '由由一村',
-              '由由三村',
-              '由由四村',
-              '由由五村',
-              '由由六村',
-              '由由二村',
-              '绿波城',
-              '毕加索小镇',
-              '金利公寓',
-              '兆丰花园',
-              '上海康城',
-              '齐爱佳苑',
-              '上海花城',
-              '凯欣豪园',
-              '天山中华园',
-              '上海阳城',
-              '水语人家',
-              '华润中央公园',
-              '科宁公寓',
-              '延西小区',
-              '保利叶语',
-              '金地艺境',
-              '春港丽园',
-              '古桐五村',
-              '古桐二村',
-              '古桐一村',
-              '古桐六村',
-              '古桐四村',
-              '古桐三村',
-              '建中路461弄',
-              '建中路171弄',
-              '汤臣豪园',
-              '奥林匹克花园',
-              '武夷花园',
-              '精益公寓',
-              '长宁路1488弄',
-              '新青浦佳园',
-              '新青浦花苑',
-              '武夷大楼',
-              '交江大楼',
-              '玉兰香苑',
-              '昭化小区',
-              '宁康小区',
-              '中山公寓',
-              '煜王苑',
-              '临沂一村',
-              '临沂二村',
-              '临沂三村',
-              '临沂四村',
-              '临沂五村',
-              '临沂六村',
-              '汇智湖畔家园',
-              '伟莱家园',
-              '东方丽景'
-              ]
-
-config = {
-    'host':'127.0.0.1',
-    'port':3306,
-    'user':'root',
-    'password':'19860112',
-    'db':'house_rent',
-    'charset':'utf8'
-}
-
-present_date = datetime.now().date()
+get_iwjw_house(iwjw_url,source[2],config_house)
 
 def delete_today_data(config):
     connection = pymysql.connect(**config)
@@ -475,7 +430,7 @@ def get_iwjw_rent_url(url_number,housename):
         urls[i-1] = url_begin + url_middle
     return urls
 
-def get_iwjw_house(urls,source):
+def get_iwjw_house(urls,source,config):
     for url in urls:
         print('current url:---------',url)
         web_data = requests.get(url)
@@ -523,60 +478,18 @@ def get_iwjw_house(urls,source):
                      connection.close()
         time.sleep(1)
 
-delete_today_data(config)
+delete_today_data(config_iwjwrent)
 url_number = len(house_name)
 source =['fangdd','lianjia','iwjw']
 print('execute time:-------------------',present_date,'HOUSE_RENT')
 
 iwjw_url = get_iwjw_rent_url(url_number,house_name)
 #print('url is --------------',iwjw_url)
-get_iwjw_house(iwjw_url,source[2])
-
-
-from bs4 import BeautifulSoup
-import requests
-import pymysql
-from datetime import date,datetime
-import time
-import re
-import pycurl
-
-stock_list = [
-    'SZ000543',    #皖能电力
-    'SZ002041',    #登海种业
-    'SH600050',    #中国联通
-    'SZ002215',    #诺普信
-    'SH600789',    #鲁抗医药
-    'SZ300027',    #华谊兄弟
-    'SH600133',    #东湖高新
-    'SZ300074',    #华平股份
-    'SZ002178',    #延华智能
-    'SZ300315',    #掌趣科技
-    'SZ002565',    #上海绿新
-    'SZ000705',    #浙江震元
-    'SH600677',    #航天通信
-    'SZ002658',    #雪迪龙
-    'SZ000563',    #陕国投A
-    'SZ002345',    #潮宏基
-    'SZ002699',    #美盛文化
-    'SH600251',    #冠农股份
-    'SZ000587',    #金洲慈航, 金叶珠宝
-    'SZ002553',    #南方轴承
-    'SZ002240'     #威华股份
-]
+get_iwjw_house(iwjw_url,source[2],config_iwjwrent)
 
 headers = {
     'Cookie':'s=1wp21218b9; xq_a_token=b6eecee1abad844d30250c0af58bfa36b2851f1d; xq_r_token=8bd931f3143a3c125db60e290232340b0a371472; Hm_lvt_1db88642e346389874251b5a1eded6e3=1463114665; Hm_lpvt_1db88642e346389874251b5a1eded6e3=1463114673; __utmt=1; __utma=1.384338427.1463114673.1463114673.1463114673.1; __utmb=1.1.10.1463114673; __utmc=1; __utmz=1.1463114673.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)',
     'User-Agent':'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.94 Safari/537.36'
-}
-
-config = {
-    'host':'127.0.0.1',
-    'port':3306,
-    'user':'root',
-    'password':'19860112',
-    'db':'stock',
-    'charset':'utf8'
 }
 
 ISOTIMEFORMAT='%Y-%m-%d %X'
@@ -626,25 +539,10 @@ def get_stock_amplitude(stock_list):
                 connection.close()
     time.sleep(1)
 
-#delete_current_data(config)
+#delete_current_data(config_stock)
 #get_stock_amplitude(stock_list)
 
-
-from bs4 import BeautifulSoup
-from datetime import date,datetime
 import datetime
-import requests
-import pymysql
-import time
-
-mysql_config = {
-    'host':'127.0.0.1',
-    'port':3306,
-    'user':'root',
-    'password':'19860112',
-    'db':'vegetable',
-    'charset':'gb2312',
-}
 
 present_date = datetime.date.today()
 yesterday = present_date + datetime.timedelta(days=-1)
@@ -753,11 +651,11 @@ def dump_data(config,vegetable):
             finally:
                 connection.close()
 
-delete_today_data(mysql_config)
+delete_today_data(mysql_config_vegetable)
 print('execute time:-------------------',present_date,'VEGETABLE')
 
 for one in range(1,6):
     vegetable_one = get_page(url,(one-1))
-    dump_data(mysql_config,vegetable_one)
+    dump_data(mysql_config_vegetable,vegetable_one)
     time.sleep(2)
     print(vegetable_one,'\n')
