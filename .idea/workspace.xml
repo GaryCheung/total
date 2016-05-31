@@ -5,7 +5,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/toal_PHPsamedb.py" afterPath="$PROJECT_DIR$/toal_PHPsamedb.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/total.py" afterPath="$PROJECT_DIR$/total.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/total_test.py" afterPath="$PROJECT_DIR$/total_test.py" />
     </list>
     <ignored path="total.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -18,7 +17,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CreatePatchCommitExecutor">
-    <option name="PATCH_PATH" value="" />
+    <option name="PATCH_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -26,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="total.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="total.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/total.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.6666665">
-              <caret line="752" column="5" selection-start-line="752" selection-start-column="5" selection-end-line="752" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.9408284">
+              <caret line="811" column="29" selection-start-line="811" selection-start-column="29" selection-end-line="811" selection-end-column="29" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -50,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="toal_PHPsamedb.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="toal_PHPsamedb.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/toal_PHPsamedb.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.43820226">
-              <caret line="848" column="39" selection-start-line="848" selection-start-column="39" selection-end-line="848" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="907" column="29" selection-start-line="907" selection-start-column="29" selection-end-line="907" selection-end-column="29" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -80,8 +79,8 @@
       <list>
         <option value="$PROJECT_DIR$/emma practice.py" />
         <option value="$PROJECT_DIR$/total_test.py" />
-        <option value="$PROJECT_DIR$/total.py" />
         <option value="$PROJECT_DIR$/toal_PHPsamedb.py" />
+        <option value="$PROJECT_DIR$/total.py" />
       </list>
     </option>
   </component>
@@ -412,7 +411,13 @@
       <option name="project" value="LOCAL" />
       <updated>1464583999445</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="update currency part. &#10;fix bugs known">
+      <created>1464666560211</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1464666560211</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -457,7 +462,8 @@
     <MESSAGE value="add 水仙苑" />
     <MESSAGE value="add 明中龙祥" />
     <MESSAGE value="add currency part" />
-    <option name="LAST_COMMIT_MESSAGE" value="add currency part" />
+    <MESSAGE value="update currency part. &#10;fix bugs known" />
+    <option name="LAST_COMMIT_MESSAGE" value="update currency part. &#10;fix bugs known" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -546,20 +552,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/total.py">
+    <entry file="file://$PROJECT_DIR$/toal_PHPsamedb.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.6666665">
-          <caret line="752" column="5" selection-start-line="752" selection-start-column="5" selection-end-line="752" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="907" column="29" selection-start-line="907" selection-start-column="29" selection-end-line="907" selection-end-column="29" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/toal_PHPsamedb.py">
+    <entry file="file://$PROJECT_DIR$/total.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43820226">
-          <caret line="848" column="39" selection-start-line="848" selection-start-column="39" selection-end-line="848" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.9408284">
+          <caret line="811" column="29" selection-start-line="811" selection-start-column="29" selection-end-line="811" selection-end-column="29" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
