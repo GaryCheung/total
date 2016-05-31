@@ -633,7 +633,7 @@ def get_stock_amplitude(stock_list):
     time.sleep(1)
 
 #delete_current_data(config)
-get_stock_amplitude(stock_list)
+#get_stock_amplitude(stock_list)
 
 from bs4 import BeautifulSoup
 from datetime import date,datetime
@@ -768,7 +768,7 @@ for one in range(1,6):
     time.sleep(2)
     print(vegetable_one,'\n')
 
-
+from datetime import datetime
 config_currency = {
     'host':'127.0.0.1',
     'port':8889,
@@ -857,6 +857,6 @@ def get_cmb_currency_data(config_currency,source):
 
 
 source = ['boc','cmb']
-delete_today_data(config_currency)
+delete_today_currency_data(config_currency)
 get_boc_currency_data(config_currency,source[0])
 get_cmb_currency_data(config_currency,source[1])

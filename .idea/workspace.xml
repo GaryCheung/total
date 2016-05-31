@@ -4,6 +4,8 @@
     <list default="true" id="614a8fe8-a54d-4bfa-bef0-34ddca3011ab" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/toal_PHPsamedb.py" afterPath="$PROJECT_DIR$/toal_PHPsamedb.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/total.py" afterPath="$PROJECT_DIR$/total.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/total_test.py" afterPath="$PROJECT_DIR$/total_test.py" />
     </list>
     <ignored path="total.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,8 +29,8 @@
       <file leaf-file-name="total.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/total.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.3333335">
-              <caret line="643" column="17" selection-start-line="643" selection-start-column="17" selection-end-line="643" selection-end-column="17" />
+            <state vertical-scroll-proportion="-7.6666665">
+              <caret line="752" column="5" selection-start-line="752" selection-start-column="5" selection-end-line="752" selection-end-column="5" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -40,9 +42,9 @@
         <entry file="file://$PROJECT_DIR$/total_test.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
+              <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
               <folding>
-                <element signature="e#0#34#0" expanded="true" />
+                <element signature="e#0#29#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -51,21 +53,11 @@
       <file leaf-file-name="toal_PHPsamedb.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/toal_PHPsamedb.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.724719">
-              <caret line="771" column="0" selection-start-line="771" selection-start-column="0" selection-end-line="771" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.43820226">
+              <caret line="848" column="39" selection-start-line="848" selection-start-column="39" selection-end-line="848" selection-end-column="39" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="emma practice.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/emma practice.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="39" column="48" selection-start-line="39" selection-start-column="48" selection-end-line="39" selection-end-column="48" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -414,7 +406,13 @@
       <option name="project" value="LOCAL" />
       <updated>1464271174279</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add currency part">
+      <created>1464583999445</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1464583999445</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -458,7 +456,8 @@
     <MESSAGE value="update" />
     <MESSAGE value="add 水仙苑" />
     <MESSAGE value="add 明中龙祥" />
-    <option name="LAST_COMMIT_MESSAGE" value="add 明中龙祥" />
+    <MESSAGE value="add currency part" />
+    <option name="LAST_COMMIT_MESSAGE" value="add currency part" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -479,9 +478,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -542,17 +539,17 @@
     <entry file="file://$PROJECT_DIR$/total_test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
           <folding>
-            <element signature="e#0#34#0" expanded="true" />
+            <element signature="e#0#29#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/total.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.3333335">
-          <caret line="643" column="17" selection-start-line="643" selection-start-column="17" selection-end-line="643" selection-end-column="17" />
+        <state vertical-scroll-proportion="-7.6666665">
+          <caret line="752" column="5" selection-start-line="752" selection-start-column="5" selection-end-line="752" selection-end-column="5" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
@@ -561,8 +558,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/toal_PHPsamedb.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.724719">
-          <caret line="771" column="0" selection-start-line="771" selection-start-column="0" selection-end-line="771" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.43820226">
+          <caret line="848" column="39" selection-start-line="848" selection-start-column="39" selection-end-line="848" selection-end-column="39" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
