@@ -905,4 +905,4 @@ print('Execute on---------',present_time)
 source = ['hexun']
 price = get_gold_price(url[0])
 #print(price)
-mysql_insert(source[0],price)
+#mysql_insert(source[0],price)
