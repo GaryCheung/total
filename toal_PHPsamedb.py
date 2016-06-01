@@ -42,11 +42,13 @@ def get_bouhgt_house(config,source):
             pages = page.get_text()
         else:
             break
+    print(pages)
     url_base = 'http://sh.lianjia.com/chengjiao/'
     for page in range(1,int(pages)+1):
         print('present page is------------------',page,'------------------','\n')
         more_page = 'd'+str(page)
         url = url_base + more_page
+        print(url)
         web_data = requests.get(url)
         soup = BeautifulSoup(web_data.text,'lxml')
         house_name = soup.select('body > div.wrapper > div.main-box.clear > div > div.list-wrap > ul > li > div.info-panel > h2 > a')
@@ -66,7 +68,9 @@ def get_bouhgt_house(config,source):
             date = date.get_text()
             price = re.findall(r'(\w*[0-9]+\.*[0-9]+)\w*',price.get_text())
             #print(type(price_per_area),price_per_area)
-            #print('house----------',name,layout,area,price_per_area,date,price)
+            print('house----------',name,layout,area,price_per_area,date,price)
+            if price_per_area == []:
+                price_per_area = '0'
             connection = pymysql.connect(**config)
             try:
                 with connection.cursor() as cursor:

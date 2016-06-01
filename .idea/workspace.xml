@@ -28,8 +28,8 @@
       <file leaf-file-name="total.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/total.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9408284">
-              <caret line="811" column="29" selection-start-line="811" selection-start-column="29" selection-end-line="811" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.49704143">
+              <caret line="129" column="23" selection-start-line="129" selection-start-column="23" selection-end-line="129" selection-end-column="23" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -53,7 +53,7 @@
         <entry file="file://$PROJECT_DIR$/toal_PHPsamedb.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="907" column="29" selection-start-line="907" selection-start-column="29" selection-end-line="907" selection-end-column="29" />
+              <caret line="74" column="16" selection-start-line="74" selection-start-column="16" selection-end-line="74" selection-end-column="16" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -85,7 +85,6 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="722" />
     <option name="width" value="718" />
     <option name="height" value="900" />
   </component>
@@ -141,7 +140,7 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../stock_data" />
     <property name="FullScreen" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -152,7 +151,7 @@
       </console-settings>
     </option>
   </component>
-  <component name="RunManager" selected="Python.toal_PHPsamedb">
+  <component name="RunManager" selected="Python.total">
     <configuration default="false" name="emma practice" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -351,8 +350,8 @@
     </list>
     <recent_temporary>
       <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Python.toal_PHPsamedb" />
-        <item index="1" class="java.lang.String" itemvalue="Python.total" />
+        <item index="0" class="java.lang.String" itemvalue="Python.total" />
+        <item index="1" class="java.lang.String" itemvalue="Python.toal_PHPsamedb" />
         <item index="2" class="java.lang.String" itemvalue="Python.total_test" />
         <item index="3" class="java.lang.String" itemvalue="Python.emma practice" />
       </list>
@@ -417,14 +416,20 @@
       <option name="project" value="LOCAL" />
       <updated>1464666560211</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="add gold price part">
+      <created>1464666742648</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1464666742648</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="722" y="0" width="718" height="900" extended-state="0" />
+    <frame x="0" y="0" width="718" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21377331" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1492109" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37740386" sideWeight="0.5024665" order="7" side_tool="true" content_ui="tabs" />
@@ -463,7 +468,8 @@
     <MESSAGE value="add 明中龙祥" />
     <MESSAGE value="add currency part" />
     <MESSAGE value="update currency part. &#10;fix bugs known" />
-    <option name="LAST_COMMIT_MESSAGE" value="update currency part. &#10;fix bugs known" />
+    <MESSAGE value="add gold price part" />
+    <option name="LAST_COMMIT_MESSAGE" value="add gold price part" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -555,7 +561,7 @@
     <entry file="file://$PROJECT_DIR$/toal_PHPsamedb.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="907" column="29" selection-start-line="907" selection-start-column="29" selection-end-line="907" selection-end-column="29" />
+          <caret line="74" column="16" selection-start-line="74" selection-start-column="16" selection-end-line="74" selection-end-column="16" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
@@ -564,8 +570,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/total.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9408284">
-          <caret line="811" column="29" selection-start-line="811" selection-start-column="29" selection-end-line="811" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.49704143">
+          <caret line="129" column="23" selection-start-line="129" selection-start-column="23" selection-end-line="129" selection-end-column="23" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>

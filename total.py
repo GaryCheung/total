@@ -196,6 +196,8 @@ def get_bouhgt_house(config,source):
             price = re.findall(r'(\w*[0-9]+\.*[0-9]+)\w*',price.get_text())
             #print(type(price_per_area),price_per_area)
             #print('house----------',name,layout,area,price_per_area,date,price)
+            if price_per_area == []:
+                price_per_area = '0'
             connection = pymysql.connect(**config)
             try:
                 with connection.cursor() as cursor:
