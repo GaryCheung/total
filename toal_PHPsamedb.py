@@ -814,10 +814,19 @@ def get_boc_currency_data(config_currency,source):
     for name,buy_xianchao,buy_xianhui,sell_xianchao,sell_xianhui,time in zip(names,buy_xianchaoes,buy_xianhuies,sell_xianchaoes,sell_xianhuies,times):
         name = name.get_text().encode('latin-1').decode('utf-8')
         buy_xianhui = buy_xianhui.get_text()
+        print('buy_xianhui--------',buy_xianhui,type(buy_xianhui))
         buy_xianchao = buy_xianchao.get_text()
         sell_xianhui = sell_xianhui.get_text()
         sell_xianchao = sell_xianchao.get_text()
         time = time.get_text()
+        if buy_xianchao == '':
+            buy_xianchao = '0.0'
+        if buy_xianhui == '':
+            buy_xianhui = '0.0'
+        if sell_xianchao == '':
+            sell_xianchao = '0.0'
+        if sell_xianhui == '':
+            sell_xianhui = '0.0'
         print('name',name,'--buy_xianhui',buy_xianhui,'---buy_xianchao',buy_xianchao,'---sell_xianchao',sell_xianchao,'---sell_xianhui',sell_xianhui,'---time',time)
         connection = pymysql.connect(**config_currency)
         try:
@@ -848,7 +857,9 @@ def get_cmb_currency_data(config_currency,source):
         buy_xianchao = buy_xianchao.get_text()
         sell_xianhui = sell_xianhui.get_text()
         sell_xianchao = sell_xianchao.get_text()
-        time = time.get_text()
+        time = time.get_text().strip()
+        if name == '交易币':
+            continue
         print('---name',name,'--buy_xianhui',buy_xianhui,'---buy_xianchao',buy_xianchao,'---sell_xianchao',sell_xianchao,'---sell_xianhui',sell_xianhui,'---time',time)
         connection = pymysql.connect(**config_currency)
         try:
