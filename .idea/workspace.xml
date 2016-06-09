@@ -4,6 +4,7 @@
     <list default="true" id="614a8fe8-a54d-4bfa-bef0-34ddca3011ab" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/toal_PHPsamedb.py" afterPath="$PROJECT_DIR$/toal_PHPsamedb.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/total.py" afterPath="$PROJECT_DIR$/total.py" />
     </list>
     <ignored path="total.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="total.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="total.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/total.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="763" column="30" selection-start-line="693" selection-start-column="0" selection-end-line="763" selection-end-column="30" />
+            <state vertical-scroll-proportion="1.2798507">
+              <caret line="823" column="1" selection-start-line="823" selection-start-column="1" selection-end-line="823" selection-end-column="1" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -48,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="toal_PHPsamedb.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="toal_PHPsamedb.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/toal_PHPsamedb.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.6511194">
-              <caret line="872" column="30" selection-start-line="872" selection-start-column="30" selection-end-line="872" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="1017" column="40" selection-start-line="1017" selection-start-column="40" selection-end-line="1017" selection-end-column="40" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -78,8 +79,8 @@
       <list>
         <option value="$PROJECT_DIR$/emma practice.py" />
         <option value="$PROJECT_DIR$/total_test.py" />
-        <option value="$PROJECT_DIR$/total.py" />
         <option value="$PROJECT_DIR$/toal_PHPsamedb.py" />
+        <option value="$PROJECT_DIR$/total.py" />
       </list>
     </option>
   </component>
@@ -112,8 +113,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -134,6 +133,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -150,7 +151,7 @@
       </console-settings>
     </option>
   </component>
-  <component name="RunManager" selected="Python.toal_PHPsamedb">
+  <component name="RunManager" selected="Python.total">
     <configuration default="false" name="emma practice" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -349,8 +350,8 @@
     </list>
     <recent_temporary>
       <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Python.toal_PHPsamedb" />
-        <item index="1" class="java.lang.String" itemvalue="Python.total" />
+        <item index="0" class="java.lang.String" itemvalue="Python.total" />
+        <item index="1" class="java.lang.String" itemvalue="Python.toal_PHPsamedb" />
         <item index="2" class="java.lang.String" itemvalue="Python.total_test" />
         <item index="3" class="java.lang.String" itemvalue="Python.emma practice" />
       </list>
@@ -433,7 +434,13 @@
       <option name="project" value="LOCAL" />
       <updated>1465133724781</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="update">
+      <created>1465350661199</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1465350661199</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -445,19 +452,19 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37740386" sideWeight="0.5024665" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3221154" sideWeight="0.49753347" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32289156" sideWeight="0.49753347" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -474,7 +481,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="TOTLE CODE OF EVERYDAY RUN" />
     <MESSAGE value="TOTLE CODE OF EVERYDAY RUN WITH SAME PHP DB" />
-    <MESSAGE value="update" />
     <MESSAGE value="add 水仙苑" />
     <MESSAGE value="add 明中龙祥" />
     <MESSAGE value="add currency part" />
@@ -482,13 +488,44 @@
     <MESSAGE value="add gold price part" />
     <MESSAGE value="fix bugs of bought_house which price_per_area is 0" />
     <MESSAGE value="add 旭辉亚瑟郡" />
-    <option name="LAST_COMMIT_MESSAGE" value="add 旭辉亚瑟郡" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/total.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/total_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="16" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/toal_PHPsamedb.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="925" column="17" selection-start-line="925" selection-start-column="17" selection-end-line="925" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/total.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -690,20 +727,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/total.py">
+    <entry file="file://$PROJECT_DIR$/toal_PHPsamedb.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="763" column="30" selection-start-line="693" selection-start-column="0" selection-end-line="763" selection-end-column="30" />
+          <caret line="1017" column="40" selection-start-line="1017" selection-start-column="40" selection-end-line="1017" selection-end-column="40" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/toal_PHPsamedb.py">
+    <entry file="file://$PROJECT_DIR$/total.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.6511194">
-          <caret line="872" column="30" selection-start-line="872" selection-start-column="30" selection-end-line="872" selection-end-column="30" />
+        <state vertical-scroll-proportion="1.2798507">
+          <caret line="823" column="1" selection-start-line="823" selection-start-column="1" selection-end-line="823" selection-end-column="1" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
