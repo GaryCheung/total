@@ -520,7 +520,7 @@ def get_iwjw_house(urls,source):
                 name = name.encode('UTF-8', 'ignore')
                 #price = price.get_text()
                 price = re.findall(r'(\w*[0-9]+\.*[0-9]+)\w*',price.get_text())
-                area = re.findall(r'(\w*[0-9]+\.*[0-9]+)\w*',area.get_text())
+                area = re.findall(r'(\w*[0-9]+\.*[0-9]*)',area.get_text())
                 layout = layout.get_text()
                 print(price,'-----',area,'--------',layout,'-----------\n')
                 try:
@@ -994,7 +994,7 @@ def get_lianjia_house(urls,source):
                 name = name.encode('UTF-8', 'ignore')
                 #price = price.get_text()
                 price = re.findall(r'(\w*[0-9]+\.*[0-9]+)\w*',price.get_text())
-                area = re.findall(r'(\w*[0-9]+\.*[0-9]+)\w*',area.get_text())
+                area = re.findall(r'([\s\w]*[0-9]+\.*[0-9]+)\w*',area.get_text())
                 layout = layout.get_text()
                 print(price,'-----',area,'--------',layout,'-----------\n')
                 try:
