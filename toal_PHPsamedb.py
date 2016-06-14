@@ -1,97 +1,5 @@
 from bs4 import BeautifulSoup
 import requests
-from datetime import date,datetime
-import time
-import pymysql
-import re
-
-config = {
-    'host':'127.0.0.1',
-    'port':8889,
-    'user':'root',
-    'password':'root',
-    'db':'house_bought',
-    'charset':'gb2312',
-    'unix_socket':'/Applications/MAMP/tmp/mysql/mysql.sock'
-}
-
-present_date = datetime.now().date()
-
-def delete_today_data(config):
-    connection = pymysql.connect(**config)
-    try:
-        with connection.cursor() as cursor:
-            # 执行sql语句，插入记录
-            sql = "DELETE FROM house_bought where import_date = '%s'" %(present_date)
-            cursor.execute(sql)
-            # 没有设置默认自动提交，需要主动提交，以保存所执行的语句
-        connection.commit()
-    finally:
-        connection.close()
-    print('-----------------------delete success!----------------','\n')
-
-def get_bouhgt_house(config,source):
-    url = 'http://sh.lianjia.com/chengjiao/'
-    web_data = requests.get(url)
-    soup = BeautifulSoup(web_data.text,'lxml')
-    #print(soup)
-    house_pages = soup.select('body > div.wrapper > div.main-box.clear > div > div.page-box.house-lst-page-box > a')
-    #print(pages)
-    for page in house_pages:
-        if page.get_text().isdigit():
-            pages = page.get_text()
-        else:
-            break
-    print(pages)
-    url_base = 'http://sh.lianjia.com/chengjiao/'
-    for page in range(1,int(pages)+1):
-        print('present page is------------------',page,'------------------','\n')
-        more_page = 'd'+str(page)
-        url = url_base + more_page
-        print(url)
-        web_data = requests.get(url)
-        soup = BeautifulSoup(web_data.text,'lxml')
-        house_name = soup.select('body > div.wrapper > div.main-box.clear > div > div.list-wrap > ul > li > div.info-panel > h2 > a')
-        prices_per_area = soup.select('body > div.wrapper > div.main-box.clear > div > div.list-wrap > ul > li > div.info-panel > div > div.col-2.fr > div > div:nth-of-type(2) > div')
-        bought_date = soup.select('body > div.wrapper > div.main-box.clear > div > div.list-wrap > ul > li > div.info-panel > div > div.col-2.fr > div > div:nth-of-type(1) > div')
-        prices = soup.select('body > div.wrapper > div.main-box.clear > div > div.list-wrap > ul > li > div.info-panel > div > div.col-2.fr > div > div.fr > div')
-        for name,price_per_area,date,price in zip(house_name,prices_per_area,bought_date,prices):
-            names = name.get_text()
-            #print('names',names,'-----------------','\n')
-            #print('prices',prices,'---------------','\n')
-            name_layout_area = names.split(' ')
-            name = name_layout_area[0].encode('UTF-8','ignore')
-            layout = name_layout_area[1]
-            area = re.findall(r'(\w*[0-9]+\.*[0-9]+)\w*',name_layout_area[2])
-            #print(name,'---------------',layout,'---------------------',area,'-------------------','\n')
-            price_per_area = re.findall(r'(\w*[0-9]+\.*[0-9]+)\w*',price_per_area.get_text())
-            date = date.get_text()
-            price = re.findall(r'(\w*[0-9]+\.*[0-9]+)\w*',price.get_text())
-            #print(type(price_per_area),price_per_area)
-            print('house----------',name,layout,area,price_per_area,date,price)
-            if price_per_area == []:
-                price_per_area = '0'
-            connection = pymysql.connect(**config)
-            try:
-                with connection.cursor() as cursor:
-                    # 执行sql语句，插入记录
-                    sql = 'INSERT INTO house_bought (name, price, area, layout, source, price_per_area, bought_date, import_date) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)'
-                    cursor.execute(sql, (name, price, area, layout, source, price_per_area[0], date, present_date))
-                    # 没有设置默认自动提交，需要主动提交，以保存所执行的语句
-                connection.commit()
-            finally:
-                connection.close()
-    time.sleep(1)
-
-source = 'lianjia'
-print('execute time:-------------------',present_date,'HOUSE_BOUHGT')
-delete_today_data(config)
-get_bouhgt_house(config,source)
-
-
-
-from bs4 import BeautifulSoup
-import requests
 from _datetime import date,datetime
 import time
 import pymysql
@@ -167,7 +75,17 @@ house_name = ['古桐公寓',
               '旭辉亚瑟郡'
               ]
 
-config = {
+config_house_bought = {
+    'host':'127.0.0.1',
+    'port':8889,
+    'user':'root',
+    'password':'root',
+    'db':'house_bought',
+    'charset':'gb2312',
+    'unix_socket':'/Applications/MAMP/tmp/mysql/mysql.sock'
+}
+
+config_house_selling = {
     'host':'127.0.0.1',
     'port':8889,
     'user':'root',
@@ -177,9 +95,113 @@ config = {
     'unix_socket':'/Applications/MAMP/tmp/mysql/mysql.sock'
 }
 
-present_date = datetime.now().date()
+config_house_rent = {
+    'host':'127.0.0.1',
+    'port':8889,
+    'user':'root',
+    'password':'root',
+    'db':'house_rent',
+    'charset':'utf8',
+    'unix_socket':'/Applications/MAMP/tmp/mysql/mysql.sock'
+}
 
-def delete_today_data(config):
+mysql_config = {
+    'host':'127.0.0.1',
+    'port':8889,
+    'user':'root',
+    'password':'root',
+    'db':'vegetable',
+    'charset':'gb2312',
+    'unix_socket':'/Applications/MAMP/tmp/mysql/mysql.sock'
+}
+
+config_currency = {
+    'host':'127.0.0.1',
+    'port':8889,
+    'user':'root',
+    'password':'root',
+    'db':'currency',
+    'charset':'utf8',
+    'unix_socket':'/Applications/MAMP/tmp/mysql/mysql.sock'
+}
+
+config_gold = {
+    'host':'127.0.0.1',
+    'port':8889,
+    'user':'root',
+    'password':'root',
+    'db':'gold_price',
+    'charset':'gb2312',
+    'unix_socket':'/Applications/MAMP/tmp/mysql/mysql.sock'
+}
+
+def delete_today_house_bought_data(config):
+    connection = pymysql.connect(**config)
+    try:
+        with connection.cursor() as cursor:
+            # 执行sql语句，插入记录
+            sql = "DELETE FROM house_bought where import_date = '%s'" %(present_date)
+            cursor.execute(sql)
+            # 没有设置默认自动提交，需要主动提交，以保存所执行的语句
+        connection.commit()
+    finally:
+        connection.close()
+    print('-----------------------delete success!----------------','\n')
+
+def get_bouhgt_house(config,source):
+    url = 'http://sh.lianjia.com/chengjiao/'
+    web_data = requests.get(url)
+    soup = BeautifulSoup(web_data.text,'lxml')
+    #print(soup)
+    house_pages = soup.select('body > div.wrapper > div.main-box.clear > div > div.page-box.house-lst-page-box > a')
+    #print(pages)
+    for page in house_pages:
+        if page.get_text().isdigit():
+            pages = page.get_text()
+        else:
+            break
+    print(pages)
+    url_base = 'http://sh.lianjia.com/chengjiao/'
+    for page in range(1,int(pages)+1):
+        print('present page is------------------',page,'------------------','\n')
+        more_page = 'd'+str(page)
+        url = url_base + more_page
+        #print(url)
+        web_data = requests.get(url)
+        soup = BeautifulSoup(web_data.text,'lxml')
+        house_name = soup.select('body > div.wrapper > div.main-box.clear > div > div.list-wrap > ul > li > div.info-panel > h2 > a')
+        prices_per_area = soup.select('body > div.wrapper > div.main-box.clear > div > div.list-wrap > ul > li > div.info-panel > div > div.col-2.fr > div > div:nth-of-type(2) > div')
+        bought_date = soup.select('body > div.wrapper > div.main-box.clear > div > div.list-wrap > ul > li > div.info-panel > div > div.col-2.fr > div > div:nth-of-type(1) > div')
+        prices = soup.select('body > div.wrapper > div.main-box.clear > div > div.list-wrap > ul > li > div.info-panel > div > div.col-2.fr > div > div.fr > div')
+        for name,price_per_area,date,price in zip(house_name,prices_per_area,bought_date,prices):
+            names = name.get_text()
+            #print('names',names,'-----------------','\n')
+            #print('prices',prices,'---------------','\n')
+            name_layout_area = names.split(' ')
+            name = name_layout_area[0].encode('UTF-8','ignore')
+            layout = name_layout_area[1]
+            area = re.findall(r'(\w*[0-9]+\.*[0-9]+)\w*',name_layout_area[2])
+            #print(name,'---------------',layout,'---------------------',area,'-------------------','\n')
+            price_per_area = re.findall(r'(\w*[0-9]+\.*[0-9]+)\w*',price_per_area.get_text())
+            date = date.get_text()
+            price = re.findall(r'(\w*[0-9]+\.*[0-9]+)\w*',price.get_text())
+            #print(type(price_per_area),price_per_area)
+            print('house----------',name,layout,area,price_per_area,date,price)
+            if price_per_area == []:
+                price_per_area = '0'
+            connection = pymysql.connect(**config)
+            try:
+                with connection.cursor() as cursor:
+                    # 执行sql语句，插入记录
+                    sql = 'INSERT INTO house_bought (name, price, area, layout, source, price_per_area, bought_date, import_date) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)'
+                    cursor.execute(sql, (name, price, area, layout, source, price_per_area[0], date, present_date))
+                    # 没有设置默认自动提交，需要主动提交，以保存所执行的语句
+                connection.commit()
+            finally:
+                connection.close()
+    time.sleep(1)
+
+def delete_today_house_selling_data(config):
     connection = pymysql.connect(**config)
     try:
         with connection.cursor() as cursor:
@@ -204,7 +226,7 @@ def get_fangdd_url(url_number,housename):
         urls[i-1] = url_begin + url_middle + url_end
     return urls
 
-def get_fangdd_house(urls,source):
+def get_fangdd_house(urls,source,config):
     for url in urls:
         print('original url-------------------------',url,'\n')
         #proxy = '33.33.33.11:8118'
@@ -266,7 +288,7 @@ def get_lianjia_url(url_number,housename):
         urls[i-1] = url_begin + url_middle
     return urls
 
-def get_lianjia_house(urls,source):
+def get_lianjia_selling_house(urls,source,config):
     for url in urls:
         print(url)
         web_data = requests.get(url)
@@ -316,7 +338,7 @@ def get_iwjw_url(url_number,housename):
         urls[i-1] = url_begin + url_middle
     return urls
 
-def get_iwjw_house(urls,source):
+def get_iwjw_selling_house(urls,source,config):
     for url in urls:
         print(url)
         web_data = requests.get(url)
@@ -360,114 +382,12 @@ def get_iwjw_house(urls,source):
                      connection.close()
         time.sleep(1)
 
-delete_today_data(config)
-url_number = len(house_name)
-source =['fangdd','lianjia','iwjw']
-print('execute time:-------------------',present_date,'HOUSE')
-
-fangdd_url = get_fangdd_url(url_number,house_name)
-get_fangdd_house(fangdd_url,source[0])
-
-lianjia_url = get_lianjia_url(url_number,house_name)
-get_lianjia_house(lianjia_url,source[1])
-
-iwjw_url = get_iwjw_url(url_number,house_name)
-get_iwjw_house(iwjw_url,source[2])
-
-
-from bs4 import BeautifulSoup
-import requests
-from _datetime import date,datetime
-import time
-import pymysql
-import re
-from urllib.parse import quote
-
-house_name = ['古桐公寓',
-              '三泾南宅',
-              '中阳小区',
-              '朗诗绿色街区',
-              '长宁路1600弄',
-              '春天花园',
-              '三泾北宅',
-              '金杨五街坊',
-              '金杨二街坊',
-              '由由七村',
-              '由由一村',
-              '由由三村',
-              '由由四村',
-              '由由五村',
-              '由由六村',
-              '由由二村',
-              '绿波城',
-              '毕加索小镇',
-              '金利公寓',
-              '兆丰花园',
-              '上海康城',
-              '齐爱佳苑',
-              '上海花城',
-              '凯欣豪园',
-              '天山中华园',
-              '上海阳城',
-              '水语人家',
-              '华润中央公园',
-              '科宁公寓',
-              '延西小区',
-              '保利叶语',
-              '金地艺境',
-              '春港丽园',
-              '古桐五村',
-              '古桐二村',
-              '古桐一村',
-              '古桐六村',
-              '古桐四村',
-              '古桐三村',
-              '建中路461弄',
-              '建中路171弄',
-              '汤臣豪园',
-              '奥林匹克花园',
-              '武夷花园',
-              '精益公寓',
-              '长宁路1488弄',
-              '新青浦佳园',
-              '新青浦花苑',
-              '武夷大楼',
-              '交江大楼',
-              '玉兰香苑',
-              '昭化小区',
-              '宁康小区',
-              '中山公寓',
-              '煜王苑',
-              '临沂一村',
-              '临沂二村',
-              '临沂三村',
-              '临沂四村',
-              '临沂五村',
-              '临沂六村',
-              '汇智湖畔家园',
-              '伟莱家园',
-              '东方丽景',
-              '旭辉亚瑟郡'
-              ]
-
-config = {
-    'host':'127.0.0.1',
-    'port':8889,
-    'user':'root',
-    'password':'root',
-    'db':'house_rent',
-    'charset':'utf8',
-    'unix_socket':'/Applications/MAMP/tmp/mysql/mysql.sock'
-}
-
-present_date = datetime.now().date()
-
-def delete_today_data(config):
+def delete_today_house_iwjwrent_data(config):
     connection = pymysql.connect(**config)
     try:
         with connection.cursor() as cursor:
             # 执行sql语句，插入记录
-            sql = "DELETE FROM house_rent WHERE date = '%s'" %(present_date)
+            sql = "DELETE FROM house_rent WHERE date = '%s' and source = 'iwjw'" %(present_date)
             cursor.execute(sql)
             # 没有设置默认自动提交，需要主动提交，以保存所执行的语句
         connection.commit()
@@ -486,7 +406,7 @@ def get_iwjw_rent_url(url_number,housename):
         urls[i-1] = url_begin + url_middle
     return urls
 
-def get_iwjw_house(urls,source):
+def get_iwjw_house(urls,source,config):
     for url in urls:
         print('current url:---------',url)
         web_data = requests.get(url)
@@ -534,16 +454,7 @@ def get_iwjw_house(urls,source):
                      connection.close()
         time.sleep(1)
 
-delete_today_data(config)
-url_number = len(house_name)
-source =['fangdd','lianjia','iwjw']
-print('execute time:-------------------',present_date,'HOUSE_RENT')
-
-iwjw_url = get_iwjw_rent_url(url_number,house_name)
-#print('url is --------------',iwjw_url)
-get_iwjw_house(iwjw_url,source[2])
-
-
+'''
 from bs4 import BeautifulSoup
 import requests
 import pymysql
@@ -640,23 +551,11 @@ def get_stock_amplitude(stock_list):
 
 #delete_current_data(config)
 #get_stock_amplitude(stock_list)
+'''
 
-from bs4 import BeautifulSoup
-from datetime import date,datetime
+
 import datetime
-import requests
-import pymysql
 import time
-
-mysql_config = {
-    'host':'127.0.0.1',
-    'port':8889,
-    'user':'root',
-    'password':'root',
-    'db':'vegetable',
-    'charset':'gb2312',
-    'unix_socket':'/Applications/MAMP/tmp/mysql/mysql.sock'
-}
 
 present_date = datetime.date.today()
 yesterday = present_date + datetime.timedelta(days=-1)
@@ -774,19 +673,6 @@ for one in range(1,6):
     time.sleep(2)
     print(vegetable_one,'\n')
 
-from datetime import datetime
-config_currency = {
-    'host':'127.0.0.1',
-    'port':8889,
-    'user':'root',
-    'password':'root',
-    'db':'currency',
-    'charset':'utf8',
-    'unix_socket':'/Applications/MAMP/tmp/mysql/mysql.sock'
-}
-
-present_date = datetime.now().date()
-
 def delete_today_currency_data(config_currency):
     connection = pymysql.connect(**config_currency)
     try:
@@ -872,19 +758,13 @@ def get_cmb_currency_data(config_currency,source):
         finally:
             connection.close()
 
-
-source = ['boc','cmb']
-delete_today_currency_data(config_currency)
-get_boc_currency_data(config_currency,source[0])
-get_cmb_currency_data(config_currency,source[1])
-
 import time
 
 # 格式化成2016-03-20 11:45:39形式
 present_time =  time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 print(present_time)
 
-url = ['http://gold.hexun.com/hjxh/']
+url_gold = ['http://gold.hexun.com/hjxh/']
 
 def get_gold_price(url):
     web_data = requests.get(url)
@@ -896,17 +776,7 @@ def get_gold_price(url):
         gold_price.append(prices.get_text())
     return gold_price
 
-config = {
-    'host':'127.0.0.1',
-    'port':8889,
-    'user':'root',
-    'password':'root',
-    'db':'gold_price',
-    'charset':'gb2312',
-    'unix_socket':'/Applications/MAMP/tmp/mysql/mysql.sock'
-}
-
-def mysql_insert(source,price):
+def mysql_insert(source,price,config):
     connection = pymysql.connect(**config)
     try:
         with connection.cursor() as cursor:
@@ -918,25 +788,7 @@ def mysql_insert(source,price):
     finally:
         connection.close()
 
-print('Gold Execute on---------',present_time)
-source = ['hexun']
-price = get_gold_price(url[0])
-#print(price)
-mysql_insert(source[0],price)
-
-config = {
-    'host':'127.0.0.1',
-    'port':8889,
-    'user':'root',
-    'password':'root',
-    'db':'house_rent',
-    'charset':'utf8',
-    'unix_socket':'/Applications/MAMP/tmp/mysql/mysql.sock'
-}
-
-present_date = datetime.now().date()
-
-def delete_today_data(config):
+def delete_today_house_lianjiarent_data(config):
     connection = pymysql.connect(**config)
     try:
         with connection.cursor() as cursor:
@@ -960,7 +812,7 @@ def get_lianjia_rent_url(url_number,housename):
         urls[i-1] = url_begin + url_middle
     return urls
 
-def get_lianjia_house(urls,source):
+def get_lianjia_house(urls,source,config):
     for url in urls:
         print('current url:---------',url)
         web_data = requests.get(url)
@@ -1008,14 +860,60 @@ def get_lianjia_house(urls,source):
                      connection.close()
         time.sleep(1)
 
-#delete_today_data(config)
+
+from datetime import datetime
+
+####### 公用参数 ########################
+present_date = datetime.now().date()
 url_number = len(house_name)
 source =['fangdd','lianjia','iwjw']
+
+
+####### 已成交房源 ######################
+print('execute time:-------------------',present_date,'HOUSE_BOUHGT')
+delete_today_house_bought_data(config_house_bought)
+get_bouhgt_house(config_house_bought,source[1])
+
+####### 在售房源 ######################
+delete_today_house_selling_data(config_house_selling)
+print('execute time:-------------------',present_date,'HOUSE')
+
+fangdd_url = get_fangdd_url(url_number,house_name)
+get_fangdd_house(fangdd_url,source[0],config_house_selling)
+
+lianjia_url = get_lianjia_url(url_number,house_name)
+get_lianjia_selling_house(lianjia_url,source[1],config_house_selling)
+
+iwjw_url = get_iwjw_url(url_number,house_name)
+get_iwjw_selling_house(iwjw_url,source[2],config_house_selling)
+
+####### 出租房源 ######################
+delete_today_house_iwjwrent_data(config_house_rent)
+print('execute time:-------------------',present_date,'HOUSE_RENT')
+
+iwjw_url = get_iwjw_rent_url(url_number,house_name)
+#print('url is --------------',iwjw_url)
+get_iwjw_house(iwjw_url,source[2],config_house_rent)
+
+delete_today_house_lianjiarent_data(config_house_rent)
 print('execute time:-------------------',present_date)
 
 lianjia_url = get_lianjia_rent_url(url_number,house_name)
 #print('url is --------------',lianjia_url)
-get_lianjia_house(lianjia_url,source[1])
+get_lianjia_house(lianjia_url,source[1],config_house_rent)
+
+####### 汇率 ######################
+source = ['boc','cmb']
+delete_today_currency_data(config_currency)
+get_boc_currency_data(config_currency,source[0])
+get_cmb_currency_data(config_currency,source[1])
+
+####### 金价 ######################
+print('Gold Execute on---------',present_time)
+source_gold = ['hexun']
+price = get_gold_price(url_gold[0])
+#print(price)
+mysql_insert(source_gold[0],price,config_gold)
 
 
 print("All Done!!")
