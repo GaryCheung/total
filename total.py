@@ -462,8 +462,8 @@ def get_iwjw_rent_house(urls,source,config):
             more_page = 'p'+str(page)+'/'
             #print(url)
             urls_iwjw_house = re.split(url_base,url)
-            #print(urls_iwjw_house)
-            url_iwjw_house = url_base + more_page + urls_iwjw_house[0]
+            print(urls_iwjw_house)
+            url_iwjw_house = url_base + more_page + urls_iwjw_house[1]
             #print('real url is ----------------',url)
             web_data = requests.get(url_iwjw_house)
             soup = BeautifulSoup(web_data.text,'lxml')
@@ -851,7 +851,7 @@ from datetime import datetime
 present_date = datetime.now().date()
 source_house =['fangdd','lianjia','iwjw']
 url_number = len(house_name)
-
+'''
 print('house bought code execute time:-------------------',present_date,'HOUSE BOUHGT')
 delete_today_bought_data(config_housebought)
 get_bouhgt_house(config_housebought,source_house[1])
@@ -870,12 +870,12 @@ get_lianjia_ershoufang_house(lianjia_url,source_house[1],config_house_selling)
 
 delete_today_iwjw_rent_data(config_rent)
 print('iwjw rent house execute time:-------------------',present_date,'HOUSE_RENT')
-
+'''
 iwjw_url = get_iwjw_rent_url(url_number,house_name)
 #print('url is --------------',iwjw_url)
 get_iwjw_rent_house(iwjw_url,source_house[2],config_rent)
 
-
+'''
 delete_today_lianjia_rent_data(config_lianjia_rent)
 print('lianjia rent house execute time:-------------------',present_date,'HOUSE_RENT')
 lianjia_url = get_lianjia_rent_url(url_number,house_name)
@@ -898,6 +898,6 @@ source = ['hexun']
 price = get_gold_price(url[0])
 #print(price)
 mysql_insert(source[0],price)
-
+'''
 
 print("All Done!!!")

@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="614a8fe8-a54d-4bfa-bef0-34ddca3011ab" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/toal_PHPsamedb.py" afterPath="$PROJECT_DIR$/toal_PHPsamedb.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/total.py" afterPath="$PROJECT_DIR$/total.py" />
     </list>
     <ignored path="total.iws" />
@@ -28,8 +27,8 @@
       <file leaf-file-name="total.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/total.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-21.189348">
-              <caret line="148" column="1" selection-start-line="148" selection-start-column="1" selection-end-line="148" selection-end-column="1" />
+            <state vertical-scroll-proportion="0.54043394">
+              <caret line="465" column="69" selection-start-line="465" selection-start-column="69" selection-end-line="465" selection-end-column="69" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -452,12 +451,18 @@
       <option name="project" value="LOCAL" />
       <updated>1465629629792</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="update">
+      <created>1465881270553</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1465881270557</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17054264" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -782,8 +787,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/total.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.189348">
-          <caret line="148" column="1" selection-start-line="148" selection-start-column="1" selection-end-line="148" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.54043394">
+          <caret line="465" column="69" selection-start-line="465" selection-start-column="69" selection-end-line="465" selection-end-column="69" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
