@@ -851,31 +851,31 @@ from datetime import datetime
 present_date = datetime.now().date()
 source_house =['fangdd','lianjia','iwjw']
 url_number = len(house_name)
-'''
-print('house bought code execute time:-------------------',present_date,'HOUSE BOUHGT')
-delete_today_bought_data(config_housebought)
-get_bouhgt_house(config_housebought,source_house[1])
 
 delete_today_selling_house_data(config_house_selling)
 print('selling house execute time:-------------------',present_date,'HOUSE_SELLING')
 
-iwjw_url = get_iwjw_url(url_number,house_name)
-get_iwjw_selling_house(iwjw_url,source_house[2],config_house_selling)
-
 fangdd_url = get_fangdd_url(url_number,house_name)
 get_fangdd_house(fangdd_url,source_house[0],config_house_selling)
+
+iwjw_url = get_iwjw_url(url_number,house_name)
+get_iwjw_selling_house(iwjw_url,source_house[2],config_house_selling)
 
 lianjia_url = get_lianjia_url(url_number,house_name)
 get_lianjia_ershoufang_house(lianjia_url,source_house[1],config_house_selling)
 
+print('house bought code execute time:-------------------',present_date,'HOUSE BOUHGT')
+delete_today_bought_data(config_housebought)
+get_bouhgt_house(config_housebought,source_house[1])
+
 delete_today_iwjw_rent_data(config_rent)
 print('iwjw rent house execute time:-------------------',present_date,'HOUSE_RENT')
-'''
+
 iwjw_url = get_iwjw_rent_url(url_number,house_name)
 #print('url is --------------',iwjw_url)
 get_iwjw_rent_house(iwjw_url,source_house[2],config_rent)
 
-'''
+
 delete_today_lianjia_rent_data(config_lianjia_rent)
 print('lianjia rent house execute time:-------------------',present_date,'HOUSE_RENT')
 lianjia_url = get_lianjia_rent_url(url_number,house_name)
@@ -898,6 +898,6 @@ source = ['hexun']
 price = get_gold_price(url[0])
 #print(price)
 mysql_insert(source[0],price)
-'''
+
 
 print("All Done!!!")
