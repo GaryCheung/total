@@ -900,10 +900,10 @@ lianjia_url = get_lianjia_rent_url(url_number,house_name)
 get_lianjia_house(lianjia_url,source[1],config_house_rent)
 
 ####### 汇率 ######################
-source = ['boc','cmb']
+source_currency = ['boc','cmb']
 delete_today_currency_data(config_currency)
-get_boc_currency_data(config_currency,source[0])
-get_cmb_currency_data(config_currency,source[1])
+get_boc_currency_data(config_currency,source_currency[0])
+get_cmb_currency_data(config_currency,source_currency[1])
 
 ####### 金价 ######################
 print('Gold Execute on---------',present_time)
