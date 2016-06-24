@@ -891,10 +891,10 @@ present_time_gold =  time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 #print(present_time)
 url = ['http://gold.hexun.com/hjxh/']
 print('Gold price Execute on---------',present_time_gold)
-source = ['hexun']
+source_gold = ['hexun']
 price = get_gold_price(url[0])
 #print(price)
-mysql_insert(source[0],price,present_time_gold)
+mysql_insert(source_gold[0],price,present_time_gold)
 
 fangdd_url = get_fangdd_url(url_number,house_name)
 get_fangdd_house(fangdd_url,source_house[0],config_house_selling)
