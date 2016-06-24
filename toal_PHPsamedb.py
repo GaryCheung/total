@@ -878,9 +878,6 @@ get_bouhgt_house(config_house_bought,source[1])
 delete_today_house_selling_data(config_house_selling)
 print('execute time:-------------------',present_date,'HOUSE')
 
-fangdd_url = get_fangdd_url(url_number,house_name)
-get_fangdd_house(fangdd_url,source[0],config_house_selling)
-
 lianjia_url = get_lianjia_url(url_number,house_name)
 get_lianjia_selling_house(lianjia_url,source[1],config_house_selling)
 
@@ -915,5 +912,7 @@ price = get_gold_price(url_gold[0])
 #print(price)
 mysql_insert(source_gold[0],price,config_gold)
 
+fangdd_url = get_fangdd_url(url_number,house_name)
+get_fangdd_house(fangdd_url,source[0],config_house_selling)
 
 print("All Done!!")

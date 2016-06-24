@@ -762,7 +762,7 @@ def get_gold_price(url):
         gold_price.append(prices.get_text())
     return gold_price
 
-def mysql_insert(source,price):
+def mysql_insert(source,price,present_time):
     connection = pymysql.connect(**config)
     try:
         with connection.cursor() as cursor:
@@ -855,9 +855,6 @@ url_number = len(house_name)
 delete_today_selling_house_data(config_house_selling)
 print('selling house execute time:-------------------',present_date,'HOUSE_SELLING')
 
-fangdd_url = get_fangdd_url(url_number,house_name)
-get_fangdd_house(fangdd_url,source_house[0],config_house_selling)
-
 iwjw_url = get_iwjw_url(url_number,house_name)
 get_iwjw_selling_house(iwjw_url,source_house[2],config_house_selling)
 
@@ -882,22 +879,24 @@ lianjia_url = get_lianjia_rent_url(url_number,house_name)
 #print('url is --------------',lianjia_url)
 get_lianjia_rent_house(lianjia_url,source_house[1],config_lianjia_rent)
 
-source = ['boc','cmb']
+source_currency = ['boc','cmb']
 delete_today_currency_data(config_currency)
-get_boc_currency_data(config_currency,source[0])
-get_cmb_currency_data(config_currency,source[1])
+get_boc_currency_data(config_currency,source_currency[0])
+get_cmb_currency_data(config_currency,source_currency[1])
 
 import time
 
 # 格式化成2016-03-20 11:45:39形式
-present_time =  time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+present_time_gold =  time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 #print(present_time)
 url = ['http://gold.hexun.com/hjxh/']
-print('Gold price Execute on---------',present_time)
+print('Gold price Execute on---------',present_time_gold)
 source = ['hexun']
 price = get_gold_price(url[0])
 #print(price)
-mysql_insert(source[0],price)
+mysql_insert(source[0],price,present_time_gold)
 
+fangdd_url = get_fangdd_url(url_number,house_name)
+get_fangdd_house(fangdd_url,source_house[0],config_house_selling)
 
 print("All Done!!!")
