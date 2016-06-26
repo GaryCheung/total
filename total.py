@@ -4,8 +4,9 @@ import time
 import pymysql
 import re
 from urllib.parse import quote
-import pycurl
 from datetime import date,datetime
+
+password = 'root'       #修改不同平台对应的数据库密码
 
 house_name = ['古桐公寓',
               '三泾南宅',
@@ -80,7 +81,7 @@ mysql_config_vegetable = {
     'host':'127.0.0.1',
     'port':3306,
     'user':'root',
-    'password':'19860112',
+    'password':password,
     'db':'vegetable',
     'charset':'gb2312',
 }
@@ -89,7 +90,7 @@ config_stock = {
     'host':'127.0.0.1',
     'port':3306,
     'user':'root',
-    'password':'19860112',
+    'password':password,
     'db':'stock',
     'charset':'utf8'
 }
@@ -98,7 +99,7 @@ config_lianjia_rent = {
     'host':'127.0.0.1',
     'port':3306,
     'user':'root',
-    'password':'19860112',
+    'password':password,
     'db':'house_rent',
     'charset':'utf8'
 }
@@ -107,7 +108,7 @@ config_housebought = {
     'host':'127.0.0.1',
     'port':3306,
     'user':'root',
-    'password':'19860112',
+    'password':password,
     'db':'house_bought',
     'charset':'gb2312'
 }
@@ -116,7 +117,7 @@ config_house_selling = {
     'host':'127.0.0.1',
     'port':3306,
     'user':'root',
-    'password':'19860112',
+    'password':password,
     'db':'house',
     'charset':'gb2312'
 }
@@ -125,7 +126,7 @@ config_rent = {
     'host':'127.0.0.1',
     'port':3306,
     'user':'root',
-    'password':'19860112',
+    'password':password,
     'db':'house_rent',
     'charset':'utf8'
 }
@@ -134,7 +135,7 @@ config_currency = {
     'host':'127.0.0.1',
     'port':3306,
     'user':'root',
-    'password':'19860112',
+    'password':password,
     'db':'currency',
     'charset':'utf8',
 }
@@ -143,7 +144,7 @@ config = {
     'host':'127.0.0.1',
     'port':3306,
     'user':'root',
-    'password':'19860112',
+    'password':password,
     'db':'gold_price',
     'charset':'gb2312'
 }
