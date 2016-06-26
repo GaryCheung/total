@@ -6,7 +6,7 @@ import re
 from urllib.parse import quote
 from datetime import date,datetime
 
-password = 'root'       #修改不同平台对应的数据库密码
+password = 'root'       #修改不同平台对应的数据库密码；
 
 house_name = ['古桐公寓',
               '三泾南宅',
