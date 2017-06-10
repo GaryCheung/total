@@ -85,6 +85,14 @@ config_house_bought = {
     'unix_socket':'/Applications/MAMP/tmp/mysql/mysql.sock'
 }
 
+config_house_bought_win = {
+    'host':'127.0.0.1',
+    'port':3306,
+    'user':'root',
+    'password':'root',
+    'db':'house_bought',
+    'charset':'gb2312'
+}
 config_house_selling = {
     'host':'127.0.0.1',
     'port':8889,
@@ -93,6 +101,15 @@ config_house_selling = {
     'db':'house',
     'charset':'gb2312',
     'unix_socket':'/Applications/MAMP/tmp/mysql/mysql.sock'
+}
+
+config_house_selling_win = {
+    'host':'127.0.0.1',
+    'port':3306,
+    'user':'root',
+    'password':'root',
+    'db':'house',
+    'charset':'gb2312'
 }
 
 config_house_rent = {
@@ -105,6 +122,15 @@ config_house_rent = {
     'unix_socket':'/Applications/MAMP/tmp/mysql/mysql.sock'
 }
 
+config_house_rent_win = {
+    'host':'127.0.0.1',
+    'port':3306,
+    'user':'root',
+    'password':'root',
+    'db':'house_rent',
+    'charset':'utf8'
+}
+
 mysql_config = {
     'host':'127.0.0.1',
     'port':8889,
@@ -113,6 +139,15 @@ mysql_config = {
     'db':'vegetable',
     'charset':'gb2312',
     'unix_socket':'/Applications/MAMP/tmp/mysql/mysql.sock'
+}
+
+mysql_config_win = {
+    'host':'127.0.0.1',
+    'port':3306,
+    'user':'root',
+    'password':'root',
+    'db':'vegetable',
+    'charset':'gb2312'
 }
 
 config_currency = {
@@ -125,6 +160,15 @@ config_currency = {
     'unix_socket':'/Applications/MAMP/tmp/mysql/mysql.sock'
 }
 
+config_currency_win = {
+    'host':'127.0.0.1',
+    'port':3306,
+    'user':'root',
+    'password':'root',
+    'db':'currency',
+    'charset':'utf8'
+}
+
 config_gold = {
     'host':'127.0.0.1',
     'port':8889,
@@ -133,6 +177,15 @@ config_gold = {
     'db':'gold_price',
     'charset':'gb2312',
     'unix_socket':'/Applications/MAMP/tmp/mysql/mysql.sock'
+}
+
+config_gold_win = {
+    'host':'127.0.0.1',
+    'port':3306,
+    'user':'root',
+    'password':'root',
+    'db':'gold_price',
+    'charset':'gb2312'
 }
 
 def delete_today_house_bought_data(config):
@@ -664,12 +717,12 @@ def dump_data(config,vegetable):
             finally:
                 connection.close()
 
-delete_today_data(mysql_config)
+delete_today_data(mysql_config_win)
 print('execute time:-------------------',present_date,'VEGETABLE')
 
 for one in range(1,6):
     vegetable_one = get_page(url,(one-1))
-    dump_data(mysql_config,vegetable_one)
+    dump_data(mysql_config_win,vegetable_one)
     time.sleep(2)
     print(vegetable_one,'\n')
 
@@ -871,48 +924,48 @@ source =['fangdd','lianjia','iwjw']
 
 ####### 已成交房源 ######################
 print('execute time:-------------------',present_date,'HOUSE_BOUHGT')
-delete_today_house_bought_data(config_house_bought)
-get_bouhgt_house(config_house_bought,source[1])
+delete_today_house_bought_data(config_house_bought_win)
+get_bouhgt_house(config_house_bought_win,source[1])
 
 ####### 在售房源 ######################
-delete_today_house_selling_data(config_house_selling)
+delete_today_house_selling_data(config_house_selling_win)
 print('execute time:-------------------',present_date,'HOUSE')
 
 lianjia_url = get_lianjia_url(url_number,house_name)
-get_lianjia_selling_house(lianjia_url,source[1],config_house_selling)
+get_lianjia_selling_house(lianjia_url,source[1],config_house_selling_win)
 
 iwjw_url = get_iwjw_url(url_number,house_name)
-get_iwjw_selling_house(iwjw_url,source[2],config_house_selling)
+get_iwjw_selling_house(iwjw_url,source[2],config_house_selling_win)
 
 ####### 出租房源 ######################
-delete_today_house_iwjwrent_data(config_house_rent)
+delete_today_house_iwjwrent_data(config_house_rent_win)
 print('execute time:-------------------',present_date,'HOUSE_RENT')
 
 iwjw_url = get_iwjw_rent_url(url_number,house_name)
 #print('url is --------------',iwjw_url)
-get_iwjw_house(iwjw_url,source[2],config_house_rent)
+get_iwjw_house(iwjw_url,source[2],config_house_rent_win)
 
-delete_today_house_lianjiarent_data(config_house_rent)
+delete_today_house_lianjiarent_data(config_house_rent_win)
 print('execute time:-------------------',present_date)
 
 lianjia_url = get_lianjia_rent_url(url_number,house_name)
 #print('url is --------------',lianjia_url)
-get_lianjia_house(lianjia_url,source[1],config_house_rent)
+get_lianjia_house(lianjia_url,source[1],config_house_rent_win)
 
 ####### 汇率 ######################
 source_currency = ['boc','cmb']
-delete_today_currency_data(config_currency)
-get_boc_currency_data(config_currency,source_currency[0])
-get_cmb_currency_data(config_currency,source_currency[1])
+delete_today_currency_data(config_currency_win)
+get_boc_currency_data(config_currency_win,source_currency[0])
+get_cmb_currency_data(config_currency_win,source_currency[1])
 
 ####### 金价 ######################
 print('Gold Execute on---------',present_time)
 source_gold = ['hexun']
 price = get_gold_price(url_gold[0])
 #print(price)
-mysql_insert(source_gold[0],price,config_gold)
+mysql_insert(source_gold[0],price,config_gold_win)
 
 fangdd_url = get_fangdd_url(url_number,house_name)
-get_fangdd_house(fangdd_url,source[0],config_house_selling)
+get_fangdd_house(fangdd_url,source[0],config_house_selling_win)
 
 print("All Done!!")
