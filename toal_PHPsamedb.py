@@ -751,10 +751,8 @@ def dump_data(config,vegetable):
                 connection.commit()
             finally:
                 connection.close()
-<<<<<<< HEAD
 
 delete_today_data(mysql_config_win)
-=======
 '''
 ###########  蔬菜价格   #################
 delete_today_data(mysql_config)
@@ -985,7 +983,7 @@ iwjw_url = get_iwjw_url(url_number,house_name)
 get_iwjw_selling_house(iwjw_url,source[2],config_house_selling_win)
 
 fangdd_url = get_fangdd_url(url_number,house_name)
-get_fangdd_house(fangdd_url,source[0],config_house_selling)
+get_fangdd_house(fangdd_url,source[0],config_house_selling_win)
 
 ####### 出租房源 ######################
 delete_today_house_iwjwrent_data(config_house_rent_win)
@@ -1028,11 +1026,8 @@ price = get_gold_price(url_gold[0])
 #print(price)
 mysql_insert(source_gold[0],price,config_gold_win)
 
-<<<<<<< HEAD
 fangdd_url = get_fangdd_url(url_number,house_name)
 get_fangdd_house(fangdd_url,source[0],config_house_selling_win)
 
 print("All Done!!")
-=======
-print("All Done!!")
->>>>>>> origin/master
+
